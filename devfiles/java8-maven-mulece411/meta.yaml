@@ -1,0 +1,6 @@
+name: java8-maven-mulece411
+displayName: Java Maven Mule
+description: Java stack with OpenJDK 8, Maven 3.6.3, Mule CE 4.1.1 and Hello World demo application
+tags: ["RHEL8", "Java", "OpenJDK", "Maven", "Mule"]
+icon: /images/type-java.svg
+globalMemoryLimit: 2674Mi

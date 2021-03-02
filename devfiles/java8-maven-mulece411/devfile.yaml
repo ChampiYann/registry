@@ -1,0 +1,50 @@
+commands:
+- exec:
+    commandLine: mvn -Dmaven.repo.local=/home/user/.m2/repository package
+    component: tools
+    group:
+      isDefault: true
+      kind: build
+  id: mvn-package
+- exec:
+    commandLine: /opt/mule/bin/mule
+    component: mule
+    group:
+      isDefault: true
+      kind: run
+  id: run
+components:
+- container:
+    image: quay.io/eclipse/che-java8-maven:nightly
+    memoryLimit: 512Mi
+    mountSources: true
+    volumeMounts:
+    - name: m2
+      path: /home/user/.m2
+    - name: apps
+      path: /projects/target
+  name: tools
+- name: m2
+  volume: {}
+- name: apps
+  volume: {}
+- container:
+    endpoints:
+    - name: http-8081
+      targetPort: 8081
+    - exposure: public
+      name: odo-test-8081
+      path: /
+      protocol: http
+      targetPort: 8081
+    image: javastreets/mule:ce411
+    memoryLimit: 2048Mi
+    mountSources: false
+    volumeMounts:
+    - name: apps
+      path: /opt/mule/apps
+  name: mule
+metadata:
+  name: java8-maven-mulece411
+  version: 1.0.0
+schemaVersion: 2.0.0
