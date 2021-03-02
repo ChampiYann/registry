@@ -101,6 +101,23 @@
     }
   },
   {
+    "name": "java8-maven-mulece411",
+    "displayName": "Java Maven Mule",
+    "description": "Java stack with OpenJDK 8, Maven 3.6.3, Mule CE 4.1.1 and Hello World demo application",
+    "tags": [
+      "RHEL8",
+      "Java",
+      "OpenJDK",
+      "Maven",
+      "Mule"
+    ],
+    "globalMemoryLimit": "2674Mi",
+    "icon": "/images/type-java.svg",
+    "links": {
+      "self": "/devfiles/java8-maven-mulece411/devfile.yaml"
+    }
+  },
+  {
     "name": "nodejs",
     "displayName": "NodeJS Runtime",
     "description": "Stack with NodeJS 12",
